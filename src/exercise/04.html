@@ -1,0 +1,111 @@
+<!-- Creating custom components -->
+<!-- http://localhost:3000/isolated/exercise/04.html -->
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+  <script type="text/babel">
+// 04
+    // const message = property => {
+    //   return <div className="message" {...property} />
+    // }
+    // const element = (
+    //   <div className="container">
+    //     {message({children: 'Hello World', className: 'yolo', id: 'trolo'})}
+    //     {message({children: 'Goodbye World'})}
+    //   </div>
+    // )
+    // ReactDOM.render(element, document.getElementById('root'))
+// 04 excercise 1
+    // const message = ({children}) => {
+    //   return <div className="message"> {children} </div>
+    // }
+    // const element = (
+    //   <div className="container">
+    //     {React.createElement(message, {children: 'Hello World'})}
+    //     {React.createElement(message, {children: 'goodbye World'})}
+    //   </div>
+    // )
+    // ReactDOM.render(element, document.getElementById('root'))
+// 04 excercise 2
+    // function Message({children}) {
+    //   return <div className="message"> {children} </div>
+    // }
+    // const element = (
+    //   <div className="container">
+    //     <Message children="Hello World" />
+    //     <Message children="Goodbye World" />
+    //     <Message>Hello World</Message>
+    //     <Message>Goodbye World</Message>
+    //   </div>
+    // )
+    // ReactDOM.render(element, document.getElementById('root'))
+// // 04 excercise 3
+//     function Message({subject, greeting}) {
+//       return (
+//         <div className="message">
+//           {greeting}, {subject}
+//         </div>
+//       )
+//     }
+//     const PropTypes = {
+//       string(props, propName, componentName) {
+//         if (typeof props[propName] !== 'string') {
+//           return new Error(`Component ${componentName} needs the property ${propName} to be 'string' but it gets ${typeof props[propName]} instead.`)
+//         }
+//       }
+//     }
+//     Message.propTypes = {
+//       subject: PropTypes.string,
+//       greeting: PropTypes.string,
+//     }
+//     const element = (
+//       <div className="container">
+//         <Message greeting={2} subject="World" />
+//         <Message greeting="Goodbye" subject="World" />
+//       </div>
+//     )
+//     ReactDOM.render(element, document.getElementById('root'))
+// 04 excercise 4
+    // function Message({subject, greeting}) {
+    //   return (
+    //     <div className="message">
+    //       {greeting}, {subject}
+    //     </div>
+    //   )
+    // }
+    // Message.propTypes = {
+    //   subject: PropTypes.string.isRequired,
+    //   greeting: PropTypes.string.isRequired
+    // }
+    // const element = (
+    //   <div className="container">
+    //     <Message subject="World" />
+    //     <Message greeting="Goodbye" subject="World" />
+    //   </div>
+    // )
+    // ReactDOM.render(element, document.getElementById('root'))
+// 04 excercise 5
+    function Message({subject, greeting}) {
+      return (
+        <div className="message">
+          {greeting}, {subject}
+        </div>
+      )
+    }
+    Message.propTypes = {
+      subject: PropTypes.string.isRequired,
+      greeting: PropTypes.string.isRequired
+    }
+    const element = (
+      <React.Fragment>
+        <Message subject="World" />
+        <Message greeting="Goodbye" subject="World" />
+      </React.Fragment>
+    )
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+</body>
